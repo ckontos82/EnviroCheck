@@ -9,10 +9,10 @@ import uasyncio as asyncio
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect('OTE46E47E', '\"23DiakosiA11\\PentE6693EjI\\')
+wlan.connect('SSID', 'PASSWORD')            #REPLACE WITH ACTUAL SSID AND PASSWORD
 
 led = Pin('LED', Pin.OUT)
-dht_sensor = DHTSensor(22)
+dht_sensor = DHTSensor(22)                  #REPLACE WITH PINT NUMBER
 embedded_sensor = EmbeddedSensor(4)
 
 def blink_led(times, sleep_duration):
