@@ -34,6 +34,7 @@ namespace EnviroCheck.Controllers
         public async Task<ActionResult<IEnumerable<Record>>> GetAll()
         {
             var records = await _context.Records.ToListAsync();
+            records.Reverse();
             return records.Count() > 0 ? records : NotFound();
         }
 
