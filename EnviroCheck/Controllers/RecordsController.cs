@@ -38,6 +38,14 @@ namespace EnviroCheck.Controllers
             return records.Count() > 0 ? records : NotFound();
         }
 
+        [HttpGet("last")]
+        public async Task<ActionResult<Record>> GetLast()
+        {
+            var record = await _context.Records.OrderBy(r => r.Id).LastOrDefaultAsync();
+            return record == null ? NotFound() : record;
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Record record)
         {
